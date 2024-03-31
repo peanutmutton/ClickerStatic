@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Click Bach's face</title>
+	<style>
+		button {
+			padding: 80px 10px 80px 10px;
+			border-radius: 150px;
+			cursor: pointer;
+			font-weight: bold;
+			border-style: solid;
+		}
+		button:active {
+			color: white;
+			background-color: black;
+		}
+		.upgrade-buttons {
+			padding: 10px 10px 10px 10px;
+			border-radius: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<p>
+		<button onclick="
+			score++;
+			console.log(score);
+		">Click Bach's face (+1)</button>
+	<button onclick="
+			if (upgrade >= 1) {
+				score += 10;
+				console.log(score);
+			} else if (upgrade < 1) {
+			console.log('You need to upgrade!')}">Slap Bach's face (+10)</button>
+			<button onclick="
+			if (upgrade >= 2) {
+				score += 100;
+				console.log(score);
+			} else if (upgrade < 2) {
+			console.log('You need to upgrade!')}">Kick Bach's face (+100)</button>
+	</p>
+	
+	<button class="upgrade-buttons" onclick="
+			if (score < 10 && upgrade === 0) {
+				console.log('Not enought score to upgrade!');
+			} else if (score > 10 && upgrade === 0) {
+				score -= 10;
+				upgrade += 1;
+				console.log(score);
+				console.log(`Upgrade lvl: ${upgrade}`);
+			} 
+		">Upgrade to Slap (10)</button>
+		<button class="upgrade-buttons" onclick="
+			if (score < 1000) {
+				console.log('Not enought score to upgrade!');
+			} else if (score > 1000 && upgrade === 1) {
+				score -= 1000;
+				upgrade += 1;
+				console.log(score);
+				console.log(`Upgrade lvl: ${upgrade}`);
+			} 
+		">Upgrade to Kick (1000)</button>
+	<script>
+		let score = 0;
+		let upgrade = 0;
+	</script>
+</body>
+
+</html>
